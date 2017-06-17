@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 20; i <= 30; i++) {
             realm.insertOrUpdate(new User("userid" + i, "name" + i + new Date()));
 
         }

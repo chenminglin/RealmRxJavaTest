@@ -3,7 +3,6 @@ package com.bethena.realmrxjavatest;
 import android.util.Log;
 
 import io.realm.DynamicRealm;
-import io.realm.DynamicRealmObject;
 import io.realm.FieldAttribute;
 import io.realm.RealmMigration;
 import io.realm.RealmObjectSchema;
@@ -27,19 +26,28 @@ public class Migration implements RealmMigration {
 
         RealmSchema schema = realm.getSchema();
 
-        oldVersion++;
-
-        if (oldVersion == 2) {
-            RealmObjectSchema userSchema = schema.get("User");
-            userSchema.removeField("id").addPrimaryKey("userId");
-
+        if (oldVersion == 1) {
+            RealmObjectSchema userSchema = schema.create("User");
+            userSchema.addField("userId", String.class, FieldAttribute.PRIMARY_KEY)
+                    .addField("name", String.class);
             oldVersion++;
         }
-
-        if (oldVersion == 3) {
+//
+//
+        oldVersion++;
+        if (oldVersion == 2) {
             RealmObjectSchema userSchema = schema.get("User");
             userSchema.addField("age", int.class);
             oldVersion++;
         }
+
+
+        if (oldVersion == 3) {
+            RealmObjectSchema userSchema = schema.get("User");
+            userSchema.addField("gender", int.class);
+            oldVersion++;
+        }
+
+
     }
 }

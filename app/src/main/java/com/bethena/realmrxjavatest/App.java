@@ -16,7 +16,7 @@ import io.realm.RealmConfiguration;
 public class App extends Application {
 
 
-    final static int REAML_DATABASE_VERSION = 1;
+    final static int REAML_DATABASE_VERSION = 2;
 
 
     @Override

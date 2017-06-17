@@ -18,6 +18,8 @@ public class User extends RealmObject{
 
     public int age;
 
+    public int gender;
+
     public User() {
     }
 
